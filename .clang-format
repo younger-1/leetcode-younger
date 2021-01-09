@@ -1,0 +1,11 @@
+---
+BasedOnStyle: Google
+IndentWidth: 4
+---
+Language: Cpp
+
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+
+SpacesInContainerLiterals: false
+JavaScriptQuotes: Single

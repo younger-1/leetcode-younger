@@ -1,0 +1,9 @@
+.vscode/
+
+/src
+
+*.exe
+*.ilk
+*.pdb
+
+/target
