@@ -1,0 +1,25 @@
+{
+    /*
+     * https://github.com/anotherglitchinthematrix/monochrome
+     */
+    // "breadcrumbs.enabled": false,
+    // "breadcrumbs.icons": false,
+    "editor.colorDecorators": false,
+    // "editor.cursorBlinking": "solid",
+    // "editor.cursorStyle": "block",
+    // "editor.links": false,
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": false,
+    "editor.renderLineHighlight": "all",
+    // "editor.renderWhitespace": "none",
+    "editor.roundedSelection": false,
+    // "editor.selectionHighlight": false,
+    "editor.showFoldingControls": "always",
+    // "workbench.editor.showIcons": false,
+    // "workbench.editor.tabCloseButton": "off",
+    // "workbench.iconTheme": null,
+    "workbench.tree.indent": 20,
+    "lldb.displayFormat": "auto",
+    "lldb.showDisassembly": "auto",
+    "lldb.dereferencePointers": true,
+}

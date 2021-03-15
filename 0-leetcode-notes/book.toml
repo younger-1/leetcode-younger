@@ -1,0 +1,6 @@
+[book]
+authors = ["younger"]
+language = "en"
+multilingual = false
+src = "."
+title = "LeetCode-Younger"

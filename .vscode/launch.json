@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": ".leetcode_99ac811a"
+        },
+        {
+            "name": "clang++ - Build and debug active file",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopOnEntry": false,
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "clang++ build active file"
+        }
+    ]
+}
