@@ -21,13 +21,11 @@ class Solution {
    public:
     vector<vector<int>> generateMatrix(int n) {
         vector<vector<int>> res(n, vector<int>(n));
-        int row, col = 0;
+        int row = 0, col = 0;
         int index = 0;
         int total = n * n;
-        int i = 1;
-        while (i <= total) {
+        for (int i = 1; i <= total; i++) {
             res[row][col] = i;
-            i += 1;
             int _row = row + directions[index][0];
             int _col = col + directions[index][1];
             if (_row < 0 || _row >= n || _col < 0 || _col >= n || res[_row][_col] != 0) {
