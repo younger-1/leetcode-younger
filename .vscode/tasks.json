@@ -9,7 +9,7 @@
 			"command": "clang++",
 			"args": [
 				"-std=c++17",
-				"-stdlib=libc++",
+				// "-stdlib=libc++",
 				"-g",
 				"${file}",
 				"-o",

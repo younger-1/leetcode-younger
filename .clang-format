@@ -9,3 +9,5 @@ AllowShortLoopsOnASingleLine: false
 
 SpacesInContainerLiterals: false
 JavaScriptQuotes: Single
+
+ColumnLimit: 120
