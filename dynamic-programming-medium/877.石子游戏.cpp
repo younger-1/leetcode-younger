@@ -9,7 +9,38 @@
 using namespace std;
 
 // @lc code=start
+
 class Solution {
+   public:
+    int stoneGameII(vector<int>& piles) {
+        int n = piles.size();
+        using PII = pair<int, int>;
+        vector<vector<PII>> dp(n, vector<PII>(n, {0, 0}));
+        for (int i = 0; i < n; i++) {
+            // first, second 分别代表先手和后手
+            dp[i][i].first = piles[i];
+            dp[i][i].second = 0;
+        }
+        for (int i = n - 2; i >= 0; i--) {
+            for (int j = i + 1; j < n; j++) {
+                // 先手选最左还是最右的石头，先手在下一轮变为后手
+                int left = piles[i] + dp[i + 1][j].second;
+                int right = piles[j] + dp[i][j - 1].second;
+                if (left > right) {
+                    dp[i][j].first = left;
+                    dp[i][j].second = dp[i + 1][j].first;
+                } else {
+                    dp[i][j].first = right;
+                    dp[i][j].second = dp[i][j - 1].first;
+                }
+            }
+        }
+        return dp[0][n - 1].first;
+    }
+};
+// @lc code=end
+
+class Solution_2 {
    public:
     // DP
     bool stoneGame(vector<int>& piles) {
@@ -29,8 +60,6 @@ class Solution {
         return dp[n - 1] > 0;
     }
 };
-
-// @lc code=end
 
 // 执行用时： 24 ms , 在所有 C++ 提交中击败了 35.94% 的用户
 // 内存消耗： 16.1 MB , 在所有 C++ 提交中击败了 22.60% 的用户
