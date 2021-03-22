@@ -36,6 +36,26 @@ class Solution {
         }
         return res;
     }
+
+    int lengthOfLongestSubstring_2(string s) {
+        unordered_map<char, int> window;
+        int len = 0;
+        int n = s.size();
+        int l = 0, r = 0;
+        while (r < n) {
+            char c = s[r];
+            if (window.find(c) != window.end()) {
+                char d = s[l];
+                window[d]--;
+                if (window[d] == 0)
+                    window.erase(d);
+                l++;
+            }
+            window[c]++;
+            r++;
+        }
+        return r - l;
+    }
 };
 // @lc code=end
 
