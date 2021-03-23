@@ -1,6 +1,32 @@
-[toc]
-
-
+- [初级算法](#初级算法)
+  - [数组](#数组)
+    - [136 只出现一次的数字](#136-只出现一次的数字)
+    - [189 旋转数组](#189-旋转数组)
+    - [350 两个数组的交集 II](#350-两个数组的交集-ii)
+    - [1 两数之和](#1-两数之和)
+    - [283 移动零](#283-移动零)
+  - [字符串](#字符串)
+    - [344 反转字符串](#344-反转字符串)
+    - [387 字符串中的第一个唯一字符](#387-字符串中的第一个唯一字符)
+    - [8 字符串转换整数 (atoi)](#8-字符串转换整数-atoi)
+    - [28 实现 strStr()](#28-实现-strstr)
+  - [链表](#链表)
+    - [237 删除链表中的节点](#237-删除链表中的节点)
+    - [206 反转链表](#206-反转链表)
+    - [21 合并两个有序链表](#21-合并两个有序链表)
+  - [树](#树)
+    - [234 回文链表](#234-回文链表)
+    - [104 二叉树的最大深度](#104-二叉树的最大深度)
+    - [98 验证二叉搜索树](#98-验证二叉搜索树)
+    - [102 二叉树的层序遍历](#102-二叉树的层序遍历)
+    - [108 将有序数组转换为二叉搜索树](#108-将有序数组转换为二叉搜索树)
+  - [排序和搜索](#排序和搜索)
+    - [88 合并两个有序数组](#88-合并两个有序数组)
+    - [278 第一个错误的版本](#278-第一个错误的版本)
+  - [动态规划](#动态规划)
+    - [爬楼梯](#爬楼梯)
+    - [买卖股票最佳时机](#买卖股票最佳时机)
+    - [最大子序和](#最大子序和)
 
 
 
@@ -12,7 +38,8 @@
 
 
 
-#### [136] 只出现一次的数字
+#### 136 只出现一次的数字
+
 
 ```cpp
 //36ms
@@ -69,9 +96,9 @@ public:
 
 
 
-#### [189] 旋转数组
+#### 189 旋转数组
 
-```c
+```cpp
 // time out
 #include <iostream>
 #include <vector>
@@ -176,9 +203,9 @@ class Solution2 {
 
 
 
-#### [350] 两个数组的交集 II
+#### 350 两个数组的交集 II
 
-```c
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -254,9 +281,9 @@ public:
 
 
 
-#### [1] 两数之和
+#### 1 两数之和
 
-```c
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -435,9 +462,9 @@ public:
 
 
 
-#### [283] 移动零
+#### 283 移动零
 
-```c
+```cpp
 //4ms
 class Solution0 {
 public:
@@ -447,8 +474,7 @@ public:
         {
             if (0 == nums[i]) {
                 zeros++;
-            }
-            else if (zeros) {
+            } else if (zeros) {
                 nums[i - zeros] = nums[i];
                 nums[i] = 0;
             }
@@ -460,9 +486,9 @@ public:
 class Solution1 {
 public:
     void moveZeroes(vector<int>& nums) {
-        for(int l = 0, r = 0; r < nums.size();++r) {
-            if(0 == nums[l]){
-                if( 0!= nums[r]) {
+        for(int l = 0, r = 0; r < nums.size(); ++r) {
+            if (0 == nums[l]) {
+                if ( 0!= nums[r]) {
                     nums[l] = nums[r];
                     nums[r] = 0;
                     l++;
@@ -479,7 +505,8 @@ public:
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-        int lastNonZeroFoundAt = 0;              //不是0的数
+        // 不是0的数
+        int lastNonZeroFoundAt = 0;
         for (int i = 0; i < nums.size(); i++) {
             if (nums[i] != 0) {
                 nums[lastNonZeroFoundAt++] = nums[i];
@@ -498,11 +525,11 @@ public:
 
 
 
-#### [344] 反转字符串
+#### 344 反转字符串
 
 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。
 
-```c
+```cpp
 //32-88ms
 class Solution0 {
    public:
@@ -519,11 +546,11 @@ class Solution0 {
 
 
 
-#### [387] 字符串中的第一个唯一字符
+#### 387 字符串中的第一个唯一字符
 
 cpp
 
-```c
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -547,12 +574,10 @@ public:
     int firstUniqChar(string s) {
         map<char,int> ma;
         int n=s.size();
-        for(int i=0;i!=n;i++)
-        {
+        for(int i=0;i!=n;i++) {
             ma[s[i]]++;
         }
-        for(int i=0;i!=n;i++)
-        {
+        for(int i=0;i!=n;i++) {
             if(ma[s[i]]==1)
                 return i;
         }
@@ -560,42 +585,17 @@ public:
     }
 };
 
-//40ms
-class Solution1 {
-public:
-    int firstUniqChar(string s) {
-        int ma[26]{0};
-        int n=s.size();
-        for(int i=0;i!=n;i++)
-        {
-            ma[s[i]-'a']++;
-        }
-        for(int i=0;i!=n;i++)
-        {
-            if(ma[s[i]-'a']==1)
-                return i;
-        }
-        return -1;
-    }
-};
 
 //8ms
-static const auto _ = []() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    return 0;
-}();
 class Solution1 {
 public:
     int firstUniqChar(string s) {
         int ma[26]{0};
         int n=s.size();
-        for(int i=0;i!=n;i++)
-        {
+        for(int i=0;i!=n;i++) {
             ma[s[i]-'a']++;
         }
-        for(int i=0;i!=n;i++)
-        {
+        for(int i=0;i!=n;i++) {
             if(ma[s[i]-'a']==1)
                 return i;
         }
@@ -608,9 +608,9 @@ public:
 
 
 
-#### [8] 字符串转换整数 (atoi)
+#### 8 字符串转换整数 (atoi)
 
-```c
+```cpp
 #include <iostream>
 using namespace std;
 //4ms
@@ -662,9 +662,9 @@ int main()
 
 
 
-#### [28] 实现 strStr()
+#### 28 实现 strStr()
 
-```c
+```cpp
 #include <iostream>
 using namespace std;
 //0-4ms
@@ -672,15 +672,11 @@ int strStr(string haystack, string needle) {
     if (needle.size() == 0) return 0;
     int ptr = 0;
     int start = 0;
-    for (int i = 0; i != haystack.size(); i++)
-    {
-        if (haystack[i] == needle[ptr])
-        {
+    for (int i = 0; i != haystack.size(); i++) {
+        if (haystack[i] == needle[ptr]) {
             if (ptr == 0) start = i;
             ptr++;
-        }
-        else
-        {
+        } else {
             if (ptr != 0) i = start;
             ptr = 0;
             start = 0;
@@ -690,8 +686,7 @@ int strStr(string haystack, string needle) {
     if (haystack.size() == 0 && needle.size() == 0) return 0;
     return -1;
 }
-int main()
-{
+int main() {
     string s1 = "mississippi";
     string s2 = "si"; //issip
     //string s1 = "aabaaabaaac";
@@ -705,11 +700,9 @@ public:
     int strStr(string haystack, string needle) {
         if (needle.size() == 0) return 0;
         int ptr = 0;
-        for (int i = 0; i != haystack.size(); i++)
-        {
+        for (int i = 0; i != haystack.size(); i++) {
             if (haystack[i] == needle[ptr]) ptr++;
-            else
-            {
+            else {
                 if (ptr != 0) i -= ptr;
                 ptr = 0;
             }
@@ -727,11 +720,10 @@ public:
         int l2 = needle.size();
         int i = 0, j= 0;
         while(i < l1 && j < l2){
-            if(haystack[i] == needle[j]){
+            if(haystack[i] == needle[j]) {
                 i++;
                 j++;
-            }
-            else{
+            } else {
                 i = i - j + 1;
                 j = 0;
             }
@@ -750,41 +742,15 @@ public:
 
 
 
-#### [73] 删除列表中的节点
+#### 237 删除链表中的节点
 
 请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点，你将只被给定要求被删除的节点。
 
-```c
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
- //0-16ms 7MB
-class Solution0 {
-public:
-    void deleteNode(ListNode* node) {
-        node->val = node->next->val;  //一种"狸猫换太子"的效果
-        node->next = node->next->next;
-    }
-};
-
-//12ms 6.8MB
-class Solution1 {
-public:
-    void deleteNode(ListNode* node) {
-        *node = *(node->next);
-    };
-```
 
 
+#### 206 反转链表
 
-#### [206] 反转链表
-
-```c
+```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -827,9 +793,9 @@ public:
 
 
 
-#### [21] 合并两个有序链表
+#### 21 合并两个有序链表
 
-```c
+```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -920,7 +886,7 @@ public:
 
 
 
-#### [234] 回文链表
+#### 234 回文链表
 
 ```cpp
 class Solution0 {
@@ -992,7 +958,7 @@ public:
 
 
 
-#### [104] 二叉树的最大深度
+#### 104 二叉树的最大深度
 
 ```cpp
 //0-4ms
@@ -1034,7 +1000,7 @@ class Solution2 {
 
 
 
-#### [98] 验证二叉搜索树
+#### 98 验证二叉搜索树
 
 cpp
 
@@ -1118,7 +1084,7 @@ class Solution:
 
 
 
-#### [102] 二叉树的层序遍历
+#### 102 二叉树的层序遍历
 
 cpp
 
@@ -1163,7 +1129,7 @@ class Solution {
 
 
 
-#### [108] 将有序数组转换为二叉搜索树
+#### 108 将有序数组转换为二叉搜索树
 
 ```cpp
 // Definition for a binary tree node.
@@ -1249,7 +1215,7 @@ class Solution0 {
 
 
 
-#### [88] 合并两个有序数组
+#### 88 合并两个有序数组
 
 ```cpp
 // 0-8ms 9MB
@@ -1298,10 +1264,10 @@ class Solution1 {
 
 
 
-#### [278] 第一个错误的版本
+#### 278 第一个错误的版本
 
 ```cpp
-// The API isBadVersion is defined for you.
+// The API   isBadVersion is defined for you.
 // bool isBadVersion(int version);
 
 // 0 ms 5.9 MB
