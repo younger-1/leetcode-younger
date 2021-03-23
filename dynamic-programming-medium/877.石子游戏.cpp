@@ -26,7 +26,7 @@ class Solution {
                 dp[j] = max(piles[i] - dp[j], piles[j] - dp[j - 1]);
             }
         }
-        return dp[n];
+        return dp[n - 1] > 0;
     }
 };
 
