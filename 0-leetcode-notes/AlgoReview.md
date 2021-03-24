@@ -311,3 +311,24 @@ class Solution:
 
 - 1162 地图分析
 
+
+0-1 背包问题
+
+```cpp
+int knapsack(int W, int N, vector<int>& wt, vector<int>& val) {
+    vector<vector<int>> dp(N + 1, vector<int>(W + 1, 0));
+    for (int i = 1; i <= N; i++) {
+        for (int j = 1; j <= W; j++) {
+            if (j - wt[i - 1] < 0) {
+                dp[i][j] = dp[i - 1][j];
+            } else {
+                // 如果你把这第i个物品装入了背包，那么dp[i][w]应该等于 dp[i-1][w-wt[i-1]] + val[i-1]。
+                // dp[i-1][w-wt[i-1]] 表示在装第i个物品的前提下，背包能装的最大价值
+                // 如果你没有把这第i个物品装入背包，那么很显然，最大价值dp[i][w]应该等于dp[i-1][w]。你不装嘛，那就继承之前的结果
+                dp[i][j] = max(dp[i - 1][j - wt[i - 1]] + val[i - 1], dp[i - 1][w]);
+            }
+        }
+    }
+    return dp[N][M];
+}
+```
