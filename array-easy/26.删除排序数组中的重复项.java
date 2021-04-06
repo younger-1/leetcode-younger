@@ -5,6 +5,8 @@
  */
 
 // @lc code=start
+
+// 单指针
 class Solution {
     // 161/161 cases passed (1 ms)
     // Your runtime beats 80.06 % of java submissions
