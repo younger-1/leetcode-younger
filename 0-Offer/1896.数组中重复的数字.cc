@@ -15,6 +15,25 @@ class Solution {
             }
             arr[n] += 1;
         }
-        return 0;
+        return -1;
+    }
+};
+
+// space: O(1)
+class Solution_1 {
+   public:
+    int findRepeatNumber(vector<int>& nums) {
+        int n = nums.size();
+        for (int i = 0; i < n; i++) {
+            int k = nums[i];
+            if (k < 0) {
+                k += n;
+            }
+            if (nums[k] < 0) {
+                return k;
+            }
+            nums[k] -= n;
+        }
+        return -1;
     }
 };
