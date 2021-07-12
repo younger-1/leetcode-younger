@@ -5,7 +5,7 @@
 using namespace std;
 
 class Solution {
-public:
+   public:
     string replaceSpace(string s) {
         string t;
         for (char c : s) {

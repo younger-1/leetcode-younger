@@ -1,6 +1,5 @@
 // 剑指 Offer 06. 从尾到头打印链表
-// https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/
-
+// https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
 #include <vector>
 using namespace std;
 
