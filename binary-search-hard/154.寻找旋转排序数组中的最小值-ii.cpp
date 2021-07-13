@@ -9,6 +9,11 @@
 using namespace std;
 
 // @lc code=start
+
+/*
+ * 我们考虑数组中的最后一个元素 x：在最小值右侧的元素，它们的值一定都小于等于 x；
+ * 而在最小值左侧的元素，它们的值一定都大于等于 x
+ */
 class Solution {
    public:
     int findMin(vector<int>& nums) {
