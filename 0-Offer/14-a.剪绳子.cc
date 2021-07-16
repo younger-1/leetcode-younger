@@ -1,5 +1,6 @@
 // 剑指 Offer 14- I. 剪绳子
 // https://leetcode-cn.com/problems/jian-sheng-zi-lcof/
+// 注意：本题与主站 343 题相同：https://leetcode-cn.com/problems/integer-break/
 
 #include <algorithm>
 using namespace std;
@@ -47,7 +48,7 @@ class Solution_1 {
             res *= 3;
             n -= 3;
         }
-        return res * 4;
+        return res * n;
     }
 };
 

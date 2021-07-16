@@ -24,4 +24,5 @@
     "lldb.dereferencePointers": true,
     "editor.suggest.preview": true,
     "bookmarks.saveBookmarksInProject": true,
+    "gitlens.mode.active": "zen"
 }

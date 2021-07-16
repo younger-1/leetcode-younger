@@ -48,3 +48,13 @@
 #### quick sort
 
 <https://blog.csdn.net/SDDDLLL/article/details/100884845>
+
+
+
+### trick
+
+
+
+#### pow
+
+<https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/>
