@@ -40,3 +40,20 @@ class Solution_1 {
         return ans;
     }
 };
+
+// @DP
+class Solution_2 {
+   public:
+    // f(i) 代表以第 i 个数结尾的「连续子数组的最大和」
+    // - 为何定义最大和 f(i) 中必须包含元素 f(i) ：保证 f(i) 递推到 f(i) 的正确性
+
+    // f(i) = max{f(i−1) + nums[i], nums[i]}
+    int maxSubArray(vector<int>& nums) {
+        int f = 0, maxAns = nums[0];
+        for (const auto& x : nums) {
+            f = max(f + x, x);
+            maxAns = max(maxAns, f);
+        }
+        return maxAns;
+    }
+};
