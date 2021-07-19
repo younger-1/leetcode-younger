@@ -23,6 +23,7 @@ class Node {
 
 using namespace std;
 
+// @hash-table
 class Solution_1 {
    public:
     Node* copyRandomList(Node* head) {
@@ -46,6 +47,8 @@ class Solution_1 {
 };
 // @lc code=end
 
+// TODO: redo
+// https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof/solution/jian-zhi-offer-35-fu-za-lian-biao-de-fu-zhi-ha-xi-/
 class Solution_2 {
    public:
     Node* copyRandomList(Node* head) {
