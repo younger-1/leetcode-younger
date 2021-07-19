@@ -47,7 +47,7 @@ class Solution {
 // 内存消耗： 14.1 MB , 在所有 C++ 提交中击败了 44.76% 的用户
 class Solution_1 {
    public:
-    // todo: ?
+    // TODO: ?
     // 用 Git 来讲讲二叉树最近公共祖先
     TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q) {
         if (root == nullptr) {

@@ -62,7 +62,9 @@ class Solution {
 };
 // @lc code=end
 
-// todo: redo
+// TODO: redo
+// 执行用时： 8 ms , 在所有 C++ 提交中击败了 93.68% 的用户
+// 内存消耗： 9.4 MB , 在所有 C++ 提交中击败了 89.41% 的用户
 class Solution_1 {
    private:
     static constexpr int directions[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
@@ -73,31 +75,29 @@ class Solution_1 {
         if (matrix.size() == 0 || matrix[0].size() == 0) {
             return {};
         }
+        int rs = matrix.size(), cs = matrix[0].size();
 
-        int rows = matrix.size(), columns = matrix[0].size();
-        vector<vector<bool>> visited(rows, vector<bool>(columns));
-        int total = rows * columns;
+        int r = 0, c = 0, idx = 0;
+        int total = rs * cs;
         vector<int> order(total);
-
-        int row = 0, column = 0;
-        int directionIndex = 0;
+        vector<vector<bool>> visited(rs, vector<bool>(cs));
         for (int i = 0; i < total; i++) {
-            order[i] = matrix[row][column];
-            visited[row][column] = true;
-            int nextRow = row + directions[directionIndex][0], nextColumn = column + directions[directionIndex][1];
-            if (nextRow < 0 || nextRow >= rows || nextColumn < 0 || nextColumn >= columns ||
-                visited[nextRow][nextColumn]) {
-                directionIndex = (directionIndex + 1) % 4;
+            order[i] = matrix[r][c];
+            visited[r][c] = true;
+            int rr = r + directions[idx][0], cc = c + directions[idx][1];
+            if (rr < 0 || rr >= rs || cc < 0 || cc >= cs || visited[rr][cc]) {
+                idx += 1;
+                idx %= 4;
             }
-            row += directions[directionIndex][0];
-            column += directions[directionIndex][1];
+            r += directions[idx][0];
+            c += directions[idx][1];
         }
         return order;
     }
 };
 
-// int main() {
-//     Solution* s = new Solution();
-//     vector<vector<int>> matrix{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-//     s->spiralOrder(matrix);
-// }
+int main() {
+    Solution* s = new Solution();
+    vector<vector<int>> matrix{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    s->spiralOrder(matrix);
+}

@@ -16,7 +16,7 @@ struct ListNode {
 };
 
 // @lc code=start
-// Redo
+// TODO: redo
 class Solution {
    public:
     ListNode* deleteDuplicates(ListNode* head) {
