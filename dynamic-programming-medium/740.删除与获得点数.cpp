@@ -9,7 +9,7 @@
 using namespace std;
 
 // @lc code=start
-class Solution {
+class Solution_1 {
    private:
     int rob(vector<int> &nums) {
         int size = nums.size();
@@ -36,3 +36,22 @@ class Solution {
     }
 };
 // @lc code=end
+
+// @DP
+#include <unordered_map>
+class Solution_2 {
+   public:
+    int deleteAndEarn(vector<int> &nums) {
+        unordered_map<int, int> trans, dp;
+        int maxID = 0;
+        for (const int &num : nums) {
+            trans[num] += num;
+            maxID = max(maxID, num);
+        }
+        dp[0] = 0;
+        dp[1] = trans[1];
+        for (int i = 2; i <= maxID; ++i)
+            dp[i] = max(dp[i - 2] + trans[i], dp[i - 1]);
+        return dp[maxID];
+    }
+};
