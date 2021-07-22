@@ -4,12 +4,6 @@
 
 using namespace std;
 
-void swap(int& a, int& b) {
-    a ^= b;
-    b ^= a;
-    a ^= b;
-}
-
 void is_1(vector<int>& arr) {
     int n = arr.size();
     // n-1 趟
