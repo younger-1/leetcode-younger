@@ -27,7 +27,7 @@ class Solution {
         while (right < s.length()) {
             char c = s[right];
             right += 1;
-            if (need.find(c) != need.end()) {
+            if (need.count(c)) {
                 window[c] += 1;
                 if (need[c] == window[c]) {
                     valid += 1;
@@ -39,7 +39,7 @@ class Solution {
                 }
                 char d = s[left];
                 left += 1;
-                if (need.find(d) != need.end()) {
+                if (need.count(d)) {
                     if (need[d] == window[d]) {
                         valid -= 1;
                     }
@@ -51,4 +51,49 @@ class Solution {
         return res;
     }
 };
+
 // @lc code=end
+
+class Solution_1 {
+   public:
+    vector<int> findAnagrams(string s, string t) {
+        unordered_map<char, int> need, window;
+        int start = 0, minlen = INT_MAX, match = 0;
+        for (auto c : t) {
+            need[c] += 1;
+        }
+        int left = 0, right = 0;
+        int n = s.size(), m = t.size();
+        vector<int> res;
+
+        while (right < n) {
+            if (window[s[right]] < need[s[right]]) {
+                match++;
+            }
+            window[s[right]]++;
+            right++;
+
+            while (match == m) {
+                if (right - left == t.length()) {
+                    res.push_back(left);
+                }
+                if (window[s[left]] <= need[s[left]]) {
+                    match--;
+                }
+                window[s[left]]--;
+                left++;
+            }
+        }
+        return res;
+    }
+};
+
+#include <iostream>
+int main() {
+    auto s = Solution_1();
+    string a = "cadbac", b = "abc";
+    auto res = s.findAnagrams(a, b);
+    for (auto n : res) {
+        cout << n << " ";
+    }
+}

@@ -58,3 +58,44 @@ class Solution {
     }
 };
 // @lc code=end
+
+class Solution_1 {
+   public:
+    string minWindow(string s, string t) {
+        unordered_map<char, int> need, window;
+        int start = 0, minlen = INT_MAX, match = 0;
+        for (auto c : t) {
+            need[c] += 1;
+        }
+        int left = 0, right = 0;
+        int n = s.size(), m = t.size();
+
+        while (right < n) {
+            if (window[s[right]] < need[s[right]]) {
+                match++;
+            }
+            window[s[right]]++;
+            right++;
+
+            while (match == m) {
+                if (right - left < minlen) {
+                    minlen = right - left;
+                    start = left;
+                }
+                if (window[s[left]] <= need[s[left]]) {
+                    match--;
+                }
+                window[s[left]]--;
+                left++;
+            }
+        }
+        return minlen == INT_MAX ? "" : s.substr(start, minlen);
+    }
+};
+
+#include <iostream>
+int main() {
+    auto s = Solution_1();
+    string a = "a", b = "aa";
+    cout << s.minWindow(a, b);
+}

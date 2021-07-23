@@ -203,6 +203,12 @@ Shell (4)
 
 
 
+#### sliding window
+
+<https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/hua-dong-chuang-kou-by-powcai/>
+
+
+
 ### trick
 
 
