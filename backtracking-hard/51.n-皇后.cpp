@@ -10,10 +10,19 @@ using namespace std;
 
 // @lc code=start
 
+// TODO: redo
 // 9/9 cases passed (4 ms)
 // Your runtime beats 93.22 % of cpp submissions
 // Your memory usage beats 63.19 % of cpp submissions (7.3 MB)
 class Solution {
+   public:
+    vector<vector<string>> solveNQueens(int n) {
+        // '.' 表示空，'Q' 表示皇后，初始化空棋盘。
+        vector<string> board(n, string(n, '.'));
+        backtrace(board, 0);
+        return res;
+    }
+
    private:
     vector<vector<string>> res;
     // 路径：board 中小于 row 的那些行都已经成功放置了皇后
@@ -54,14 +63,6 @@ class Solution {
         }
 
         return true;
-    }
-
-   public:
-    vector<vector<string>> solveNQueens(int n) {
-        // '.' 表示空，'Q' 表示皇后，初始化空棋盘。
-        vector<string> board(n, string(n, '.'));
-        backtrace(board, 0);
-        return res;
     }
 };
 // @lc code=end
