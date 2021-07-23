@@ -27,10 +27,9 @@ class Solution {
         dp[0] = 0;
         for (int i = 1; i < amount + 1; i++) {
             for (int c : coins) {
-                if (i - c < 0) {
-                    continue;
+                if (i - c >= 0) {
+                    dp[i] = min(dp[i], 1 + dp[i - c]);
                 }
-                dp[i] = min(dp[i], 1 + dp[i - c]);
             }
         }
         return dp[amount] == amount + 1 ? -1 : dp[amount];
