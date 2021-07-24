@@ -42,32 +42,29 @@ void ms_1(vector<int>& arr, int begin, int end) {
 }
 
 // 每次 merge 相邻的两个子组，子组内的 k 个数都是已经排好序的
-void merge_iter(vector<int>& arr, int k, int len) {
-    int low = 0;
-    while (low <= len - 2 * k) {
+void merge_iter(vector<int>& arr, int k, int begin, int end) {
+    int low = begin;
+    while (low + 2 * k - 1 < end) {
         merge(arr, low, low + k - 1, low + 2 * k - 1);
         low += 2 * k;
     }
-    if (low + k < len) {
-        merge(arr, low, low + k - 1, len - 1);
+    if (low + k - 1 < end) {
+        merge(arr, low, low + k - 1, end);
     }
 }
 
 // @iteration
 void ms_2(vector<int>& arr, int begin, int end) {
-    if (begin >= end) {
-        return;
-    }
     int k = 1, len = end - begin + 1;
     while (k < len) {
-        merge_iter(arr, k, len);
+        merge_iter(arr, k, begin, end);
         k *= 2;
     }
 }
 
 int main() {
     vector<int> arr{10, 9, 7, 6, 5, 4, 8, 3, 2, 1};
-    ms_2(arr, 0, arr.size() - 1);
+    ms_1(arr, 5, arr.size() - 1);
     for (auto num : arr) {
         cout << num << " ";
     }
