@@ -1,23 +1,34 @@
-
-2021届秋招大厂高频算法题汇总
-<https://blog.csdn.net/SDDDLLL/article/details/109723251>
+## links
 
 
 
-
-
-
-### links
-
-
-
-#### Visualizations Algorithms
+### Visualizations Algorithms
 
 > <https://github.com/enjalot/algovis>
 
 <https://visualgo.net/en>
 <https://www.cs.usfca.edu/~galles/visualization/Algorithms.html>
 <https://github.com/algorithm-visualizer/algorithm-visualizer>
+
+
+
+### Data structure
+
+
+C++ STL 之 priority_queue 与堆
+> <https://www.jianshu.com/p/65fdd3099238>
+
+C++的 make_heap/pop_heap/push_heap 用法
+> <https://www.cnblogs.com/FdWzy/p/12487216.html>
+
+- make_heap：对一个容器建堆（默认最大堆！）
+- push_heap是把数字加到末尾，并不断上溯。每次上溯时它只和其父节点比较，所以是O(logN)
+- pop_heap把原来的数组末尾元素放到堆顶，并不断下溯。每次下溯时它会和其两个子节点比较，所以是O(2logN)。
+- pop_heap：做两件事情，一：swap(data[0],data[n-1]);　　二：恢复0~n-2元素的堆性质。
+
+C++ STL 之 stack 和 queue
+> <https://www.jianshu.com/p/2f362992fc9d>
+
 
 
 

@@ -1,3 +1,4 @@
+## NoCode
 
 要命, 编译出错
 
@@ -7,6 +8,13 @@
         i += 1;
     }
 ```
+
+
+
+## Algorithm problem
+
+2021届秋招大厂高频算法题汇总
+<https://blog.csdn.net/SDDDLLL/article/details/109723251>
 
 
 
