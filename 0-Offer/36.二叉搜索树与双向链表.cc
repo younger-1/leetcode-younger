@@ -1,7 +1,7 @@
 // 剑指 Offer 36. 二叉搜索树与双向链表
 // https://leetcode-cn.com/problems/er-cha-sou-suo-shu-yu-shuang-xiang-lian-biao-lcof/
-// 注意：本题与主站 426
-// 题相同：https://leetcode-cn.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/
+// 注意：本题与主站 426 题相同：
+// https://leetcode-cn.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/
 
 /*
  * Definition for a Node.
@@ -25,6 +25,35 @@ class Node {
         val = _val;
         left = _left;
         right = _right;
+    }
+};
+
+// 链接：https://leetcode-cn.com/problems/er-cha-sou-suo-shu-yu-shuang-xiang-lian-biao-lcof/solution/mian-shi-ti-36-er-cha-sou-suo-shu-yu-shuang-xian-5/
+class Solution {
+   public:
+    Node* treeToDoublyList(Node* root) {
+        if (root == nullptr)
+            return nullptr;
+        dfs(root);
+        head->left = pre;
+        pre->right = head;
+        return head;
+    }
+
+   private:
+    Node *pre, *head;
+    void dfs(Node* cur) {
+        if (cur == nullptr)
+            return;
+        dfs(cur->left);
+        if (pre != nullptr) {
+            pre->right = cur;
+        } else {
+            head = cur;
+        }
+        cur->left = pre;
+        pre = cur;
+        dfs(cur->right);
     }
 };
 
@@ -87,16 +116,12 @@ class Solution_01 {
             b_end = b->left;
         }
 
-        // 1
         a_end->right = root;
-        b->left = root;
-
-        // 2
         root->right = b;
-        root->left = a_end;
-
-        // 3
         b_end->right = a;
+
+        b->left = root;
+        root->left = a_end;
         a->left = b_end;
 
         return a;
