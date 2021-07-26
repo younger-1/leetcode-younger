@@ -34,7 +34,7 @@ class Solution {
 
 // @lc code=end
 
-// time out
+// Time out
 class Solution_0 {
    public:
     void rotate(vector<int>& nums, int k) {
@@ -112,6 +112,7 @@ class Solution_3 {
     }
 };
 
+#include <algorithm>
 class Solution_4 {
    public:
     // 三次翻转

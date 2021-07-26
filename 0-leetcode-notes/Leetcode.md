@@ -99,7 +99,7 @@ public:
 #### 189 旋转数组
 
 ```cpp
-// time out
+// Time out
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -119,7 +119,7 @@ int main() {
     for (auto i : v) cout << i << " ";
 }
 
-// time out
+// Time out
 class Solution0 {
    public:
     void rotate(vector<int>& nums, int k) {

@@ -11,6 +11,7 @@ using namespace std;
 
 // @lc code=start
 
+// @greedy @binary-search
 // 54/54 cases passed (8 ms)
 // Your runtime beats 95.81 % of cpp submissions
 // Your memory usage beats 93.13 % of cpp submissions (10.1 MB)
