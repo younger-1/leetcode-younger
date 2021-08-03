@@ -8,7 +8,7 @@
             "label": "clang++ build active file",
             "command": "clang++",
             "args": [
-                "-std=c++17",
+                "-std=c++2a",
                 // <https://blog.csdn.net/turbock/article/details/89645593>
                 // "-stdlib=libstdc++",
                 // <https://github.com/vadimcn/vscode-lldb/issues/415>
