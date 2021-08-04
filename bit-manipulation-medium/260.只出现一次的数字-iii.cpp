@@ -22,8 +22,8 @@ class Solution {
 
         // 1100^1011 = 0111
         // 0111+1 = 1000
-        // 当 ret 为 INT_MIN 时，会溢出
-        // int diff_bit = (ret ^ (ret - 1)) + 1;
+        // 当 ret 为 INT_MIN 时，ret-1会溢出
+        // int diff_bit = ((ret ^ (ret - 1)) + 1) >> 1;
 
         int diff_bit = 1;
         while ((diff_bit & ret) == 0) {
