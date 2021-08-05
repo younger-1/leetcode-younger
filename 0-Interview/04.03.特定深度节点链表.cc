@@ -10,7 +10,8 @@ struct TreeNode {
     TreeNode* right;
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
-/**
+
+/*
  * Definition for singly-linked list.
  */
 struct ListNode {
