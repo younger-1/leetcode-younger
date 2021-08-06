@@ -40,6 +40,8 @@ void bs_2(vector<int>& arr) {
     }
 }
 
+// https://blog.csdn.net/SDDDLLL/article/details/100574229
+// last_exchange 记录排序与不排序的边界
 void bs_3(vector<int>& arr) {
     int n = arr.size();
     int last_exchange = n - 1;

@@ -214,6 +214,18 @@ Shell (4)
 
 
 
+#### merge sort
+
+<https://blog.csdn.net/SDDDLLL/article/details/100983974>
+
+
+
+#### shell sort
+
+<https://blog.csdn.net/SDDDLLL/article/details/101147125>
+
+
+
 #### sliding window
 
 <https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/hua-dong-chuang-kou-by-powcai/>

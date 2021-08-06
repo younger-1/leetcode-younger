@@ -21,6 +21,7 @@ void ss_1(vector<int>& arr) {
     }
 }
 
+// https://blog.csdn.net/SDDDLLL/article/details/100161857
 // 每跑一趟不仅仅记录最大的元素还可以记录最小的元素，这不是一举两得嘛。这时候只需要跑N/2趟
 void ss_2(vector<int>& arr) {
     int n = arr.size();
