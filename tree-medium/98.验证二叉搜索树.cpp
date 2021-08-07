@@ -4,9 +4,10 @@
  * [98] 验证二叉搜索树
  */
 
-using namespace std;
 #include <stack>
 #include <string>
+
+using namespace std;
 
 // Definition for a binary tree node.
 struct TreeNode {
@@ -29,8 +30,7 @@ class Solution1 {
             return true;
         if (root->val <= lower || root->val >= upper)
             return false;
-        return helper(root->left, lower, root->val) &&
-               helper(root->right, root->val, upper);
+        return helper(root->left, lower, root->val) && helper(root->right, root->val, upper);
     }
 
     bool isValidBST(TreeNode *root) { return helper(root, LONG_MIN, LONG_MAX); }

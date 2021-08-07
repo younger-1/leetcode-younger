@@ -3,8 +3,10 @@
  *
  * [8] 字符串转换整数 (atoi)
  */
-using namespace std;
+
 #include <string>
+
+using namespace std;
 
 // @lc code=start
 class Solution {

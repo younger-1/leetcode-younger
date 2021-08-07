@@ -34,32 +34,9 @@ class Solution {
     }
 };
 
-class Solution_1 {
-   public:
-    bool findWhetherExistsPath(int n, vector<vector<int>>& graph, int start, int target) {
-        int i;
-        vector<int> parent(n, -1);
-        for (i = 0; i < graph.size(); i++)
-            parent[graph[i][1]] = graph[i][0];
-        for (i = target; parent[i] != start && parent[i] != -1; i = parent[i])
-            ;
-        if (parent[i] == -1)
-            return false;
-        else
-            return true;
-    }
-};
-
 #include <iostream>
 
 int main() {
-    // TODO: ? case合法吗
-    /*
-    6
-    [[0, 1], [1, 3], [3, 2], [2, 5], [4, 5]
-    0
-    5
-     */
     vector<vector<int>> graph{{0, 1}, {1, 3}, {3, 2}, {2, 5}, {4, 5}};
     auto s = Solution();
     cout << s.findWhetherExistsPath(6, graph, 0, 5);
