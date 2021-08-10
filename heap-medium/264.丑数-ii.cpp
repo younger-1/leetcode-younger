@@ -10,7 +10,9 @@
 using namespace std;
 
 // @lc code=start
-// 动态规划
+
+// TODO: redo
+// @DP
 class Solution_1 {
    public:
     int nthUglyNumber(int n) {
