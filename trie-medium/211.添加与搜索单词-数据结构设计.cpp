@@ -72,6 +72,8 @@ class WordDictionary {
 
 #include <memory>
 
+// TODO: redo
+// @trie @DFS
 class WordDictionary_1 {
    public:
     /** Initialize your data structure here. */
