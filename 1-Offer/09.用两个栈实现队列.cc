@@ -7,27 +7,26 @@ using namespace std;
 // 维护两个栈，第一个栈支持插入操作，第二个栈支持删除操作
 class CQueue {
    private:
-    stack<int> stack1, stack2;
+    stack<int> s1, s2;
 
    public:
     CQueue() {}
 
-    void appendTail(int value) { stack1.push(value); }
+    void appendTail(int value) { s1.push(value); }
 
     int deleteHead() {
-        if (stack2.empty()) {
-            while (!stack1.empty()) {
-                stack2.push(stack1.top());
-                stack1.pop();
+        if (s2.empty()) {
+            while (!s1.empty()) {
+                s2.push(s1.top());
+                s1.pop();
             }
         }
-        if (stack2.empty()) {
+        if (s2.empty()) {
             return -1;
-        } else {
-            int deleteItem = stack2.top();
-            stack2.pop();
-            return deleteItem;
         }
+        int ans = s2.top();
+        s2.pop();
+        return ans;
     }
 };
 

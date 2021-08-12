@@ -12,6 +12,8 @@ struct ListNode {
 };
 
 // @lc code=start
+
+// @iteration
 class Solution {
    public:
     // 28/28 cases passed (4 ms)
@@ -31,6 +33,8 @@ class Solution {
 };
 // @lc code=end
 
+// TODO: redo
+// @recursion
 class Solution_1 {
    public:
     // 28/28 cases passed (4 ms)
