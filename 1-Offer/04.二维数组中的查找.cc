@@ -4,9 +4,10 @@
 #include <vector>
 using namespace std;
 
+// TODO: redo
 class Solution {
    public:
-    // 线性查找
+    // 线性查找: 站在右上角看。这个矩阵其实就像是一个Binary Search Tree
     bool findNumberIn2DArray(vector<vector<int>>& matrix, int target) {
         if (matrix.size() == 0 || matrix[0].size() == 0) {
             return false;
