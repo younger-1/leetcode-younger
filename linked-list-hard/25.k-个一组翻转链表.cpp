@@ -40,7 +40,6 @@ class Solution_1 {
         }
         ListNode* last = reverse(a->next, b);
         a->next->next = a;
-        a->next = b;
         return last;
     }
 };

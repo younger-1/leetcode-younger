@@ -39,6 +39,28 @@ class Solution {
 };
 // @lc code=end
 
+#include <unordered_set>
+
+class Solution_01 {
+   public:
+    int lengthOfLongestSubstring(string s) {
+        int ans = 0;
+        int n = s.length();
+        unordered_set<int> con;
+        int left = 0, right = 0;
+        while (right < n) {
+            con.insert(s[right]);
+            right++;
+            ans = max(ans, right - left);
+            while (con.count(s[right]) != 0) {
+                con.erase(s[left]);
+                left++;
+            }
+        }
+        return ans;
+    }
+};
+
 #include <iostream>
 int main() {
     auto s = Solution();
