@@ -12,6 +12,7 @@ using namespace std;
 // @lc code=start
 
 // TODO: redo
+// @prefix-sum
 class Solution {
    public:
     int subarraySum(vector<int>& nums, int k) {

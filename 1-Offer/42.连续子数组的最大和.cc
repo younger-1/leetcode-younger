@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// TODO: redo
 class Solution {
    public:
     int maxSubArray(vector<int>& nums) {
@@ -23,10 +24,11 @@ class Solution {
     }
 };
 
+// @prefix-sum
 class Solution_1 {
    public:
     int maxSubArray(vector<int>& nums) {
-        // 记录前缀和中的最小值
+        // 记录前缀和中小于0的最小值
         int min = 0;
         // sum 为前缀和
         int sum = 0, ans = -100;
@@ -57,3 +59,10 @@ class Solution_2 {
         return maxAns;
     }
 };
+
+#include <iostream>
+int main() {
+    vector<int> nums{1, -2, 3, 5, -1, 2};
+    auto s = Solution();
+    cout << s.maxSubArray(nums);
+}

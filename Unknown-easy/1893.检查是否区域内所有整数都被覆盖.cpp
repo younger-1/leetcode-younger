@@ -34,7 +34,7 @@ class Solution_1 {
    public:
     bool isCovered(vector<vector<int>>& ranges, int left, int right) {
         // https://stackoverflow.com/questions/1920430/c-array-initialization
-        array<bool, 50 + 1> flag{0};
+        std::array<bool, 50 + 1> flag{0};
         int j;
         for (auto& range : ranges) {
             fill(flag.begin() + range[0], flag.begin() + range[1] + 1, true);
@@ -60,6 +60,7 @@ class Solution_2 {
     }
 };
 
+// @prefix-sum
 // 差分数组的前缀和不仅能查询是否被覆盖，还能查询某一区间被覆盖几次。
 class Solution_3 {
    public:
