@@ -71,14 +71,6 @@ class Solution_1 {
  * 定义 vis[i][j] 为 (i, j) 坐标是否可达，如果可达返回 1，否则返回 0。
  */
 class Solution_2 {
-    int get(int x) {
-        int res = 0;
-        for (; x; x /= 10) {
-            res += x % 10;
-        }
-        return res;
-    }
-
    public:
     int movingCount(int m, int n, int k) {
         if (!k)
@@ -99,5 +91,15 @@ class Solution_2 {
             }
         }
         return ans;
+    }
+
+   private:
+    // 计算 x 的数位之和
+    int get(int x) {
+        int res = 0;
+        for (; x; x /= 10) {
+            res += x % 10;
+        }
+        return res;
     }
 };

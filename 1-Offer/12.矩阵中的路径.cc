@@ -1,5 +1,6 @@
 // 剑指 Offer 12. 矩阵中的路径
 // https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/
+// 注意：本题与主站 79 题相同：https://leetcode-cn.com/problems/word-search/
 
 #include <string>
 #include <vector>
@@ -49,7 +50,7 @@ class Solution {
 
 /*
  * 修改 board 代替额外的 visited
- * 将 board[i][j] 修改为 空字符 '' ，代表此元素已访问过，防止之后搜索时重复访问。
+ * 将 board[i][j] 修改为 空字符 '\0' 或 空白符 ' '，代表此元素已访问过，防止之后搜索时重复访问。
  */
 class Solution_1 {
    public:
