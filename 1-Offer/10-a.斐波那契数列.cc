@@ -8,9 +8,8 @@ class Solution {
         int a = 0, b = 1;
         while (n--) {
             b %= mod;
-            int tmp = b;
             b += a;
-            a = tmp;
+            a = b - a;
         }
         return a;
     }
