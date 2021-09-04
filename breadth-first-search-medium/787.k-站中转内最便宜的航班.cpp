@@ -13,6 +13,7 @@ using namespace std;
 
 // TODO: redo
 // 链接：https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/solution/k-zhan-zhong-zhuan-nei-zui-bian-yi-de-ha-abzi/
+// 本题和「1928. 规定时间内到达终点的最小花费」是类似的题
 class Solution {
    private:
     static constexpr int INF = 10000 * 100 + 1;
