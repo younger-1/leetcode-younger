@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <vector>
 
 using namespace std;
@@ -26,25 +27,53 @@ using namespace std;
 3
  */
 
+template <typename T, template <typename ELEM, typename ALLOC = std::allocator<ELEM>> class Container>
+std::ostream& operator<<(std::ostream& o, const Container<T>& container) {
+    typename Container<T>::const_iterator beg = container.begin();
+    o << "[";  // 1
+    while (beg != container.end()) {
+        o << " " << *beg++;  // 2
+    }
+    o << " ]";  // 3
+    return o;
+}
+
 int main() {
     int n;
     cin >> n;
+#define test
+#ifdef test
+    istringstream cin(
+        "0 1 1 1 0 0"
+        "1 0 1 0 1 0"
+        "1 1 0 0 0 1"
+        "1 0 0 0 1 1"
+        "0 1 0 1 0 1"
+        "0 0 1 1 1 0");
+#endif
     vector<vector<int>> g(n, vector<int>(n, 0));
+    vector<vector<int>> edges(n, vector<int>());
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             cin >> g[i][j];
+            if (g[i][j] == 1) {
+                edges[i].push_back(j);
+                edges[j].push_back(i);
+            }
         }
     }
-    int ans = 0;
+    cout << g << endl;
+    cout << edges << endl;
 
+    int ans = 0;
     for (int a1 = 0; a1 < n - 1; a1++) {
         for (int b1 = a1 + 1; b1 < n; b1++) {
-            for (int a2 : g[a1]) {
-                if (a2 == 0) {
+            for (int a2 : edges[a1]) {
+                if (a2 == a1 || a2 == b1) {
                     continue;
                 }
-                for (int b2 : g[b1]) {
-                    if (b2 == 0) {
+                for (int b2 : edges[b1]) {
+                    if (b2 == a1 || b2 == b1 || b2 == a2) {
                         continue;
                     }
                     if (g[a1][b1] && g[a2][b2]) {
@@ -57,5 +86,5 @@ int main() {
             }
         }
     }
-    cout << ans;
+    cout << ans << endl;
 }
