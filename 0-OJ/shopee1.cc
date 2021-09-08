@@ -16,7 +16,7 @@ int bestFit(int v, vector<int>& item) {
     if (item.empty()) {
         return v;
     }
-    vector<vector<int>> dp(32 + 1, vector<int>(20000 + 1));
+    vector<vector<int>> dp(item.size() + 1, vector<int>(v + 1));
     int res = v;
     dp[0][0] = 1;
     for (int i = 0; i < item.size(); i++) {
@@ -33,7 +33,7 @@ int bestFit(int v, vector<int>& item) {
     return res;
 }
 
-int bestFit_1(vector<int> items, int v) {
+int bestFit_1(int v, vector<int> items) {
     vector<int> dp(v + 1);
     dp[0] = true;
     for (int i = 0; i < items.size(); i++) {
@@ -43,8 +43,8 @@ int bestFit_1(vector<int> items, int v) {
             }
         }
     }
-    int idx = v;
 
+    int idx = v;
     while (!dp[idx]) {
         idx--;
     }

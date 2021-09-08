@@ -39,5 +39,7 @@ int main() {
     auto s = Solution();
     vector<char> cs{'a', 'a', 'b', 'b', 'c', 'c', 'c'};
     int ans = s.compress(cs);
-    cout << ans << endl;
+    for (int i = 0; i < ans; i++) {
+        cout << cs[i] << ' ';
+    }
 }

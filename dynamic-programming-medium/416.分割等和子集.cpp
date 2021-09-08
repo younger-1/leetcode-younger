@@ -38,7 +38,7 @@ class Solution {
                     dp[i][j] = dp[i - 1][j];
                 } else {
                     // 不装入或装入背包
-                    dp[i][j] = dp[i - 1][j] | dp[i - 1][j - nums[i - 1]];
+                    dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i - 1]];
                 }
             }
         }
@@ -47,3 +47,28 @@ class Solution {
     }
 };
 // @lc code=end
+
+// 状态压缩: 用一行表示原dp的每一行, (原dp的第i行由第i-1行推断)
+// 通用压缩：两行数组，无需关心内循环遍历顺序：dp[i & 1][j] = fun(dp[(i-1)&1][j], ...)
+class Solution_1 {
+   public:
+    bool canPartition(vector<int>& nums) {
+        int sum = 0, n = nums.size();
+        for (int num : nums) {
+            sum += num;
+        }
+        if (sum % 2 != 0)
+            return false;
+        sum = sum / 2;
+        vector<bool> dp(sum + 1, false);
+        // base case
+        dp[0] = true;
+
+        for (int i = 0; i < n; i++)
+            for (int j = sum; j >= 0; j--)
+                if (j - nums[i] >= 0)
+                    dp[j] = dp[j] || dp[j - nums[i]];
+
+        return dp[sum];
+    }
+};
