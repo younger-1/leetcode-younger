@@ -18,9 +18,9 @@ using namespace std;
 // @lc code=end
 
 // @DP
-// 作者：LeetCode-Solution
+// 定义 dp[i][j][k] 表示球移动 i 次之后位于坐标 (j,k) 的路径数量。
 // 链接：https://leetcode-cn.com/problems/out-of-boundary-paths/solution/chu-jie-de-lu-jing-shu-by-leetcode-solut-l9dw/
-class Solution_2 {
+class Solution_3 {
    public:
     static constexpr int MOD = 1'000'000'007;
 
@@ -29,14 +29,14 @@ class Solution_2 {
         int outCounts = 0;
         vector<vector<int>> dp(m, vector<int>(n));
         dp[startRow][startColumn] = 1;
-        for (int i = 0; i < maxMove; i++) {
+        for (int k = 0; k < maxMove; k++) {
             vector<vector<int>> dpNew(m, vector<int>(n));
-            for (int j = 0; j < m; j++) {
-                for (int k = 0; k < n; k++) {
-                    int count = dp[j][k];
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    int count = dp[i][j];
                     if (count > 0) {
                         for (auto& direction : directions) {
-                            int j1 = j + direction[0], k1 = k + direction[1];
+                            int j1 = i + direction[0], k1 = j + direction[1];
                             if (j1 >= 0 && j1 < m && k1 >= 0 && k1 < n) {
                                 dpNew[j1][k1] = (dpNew[j1][k1] + count) % MOD;
                             } else {
@@ -49,6 +49,60 @@ class Solution_2 {
             dp = dpNew;
         }
         return outCounts;
+    }
+};
+
+// 空间优化: 三维数组压缩为两个二维数组
+class Solution_21 {
+   public:
+    static constexpr int MOD = 1'000'000'007;
+
+    int findPaths(int m, int n, int maxMove, int startRow, int startColumn) { return 0; }
+};
+
+// @DP
+// https://leetcode-cn.com/problems/out-of-boundary-paths/comments/5603
+// 三维数组存储路径数
+// dp[i][j][k]表示从(i, j)开始在k步内移除边界的路径数.
+// dp[i][j][k] = dp[i-1][j][k-1] + dp[i+1][j][k-1] + dp[i][j-1][k-1] + dp[i][j+1][k-1];
+// TODO: ?
+/*
+1
+3
+3
+0
+1
+输出
+11
+预期结果
+12
+ */
+class Solution_2 {
+   public:
+    static constexpr int MOD = 1'000'000'007;
+
+    int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
+        if (maxMove == 0) {
+            return 0;
+        }
+        vector<vector<int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int outCounts = 0;
+        vector<vector<vector<int>>> dp(m, vector<vector<int>>(n, vector<int>(maxMove + 1)));
+        for (int k = 1; k <= maxMove; k++) {
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    for (auto& direction : directions) {
+                        int ni = i + direction[0], nj = j + direction[1];
+                        if (ni < 0 || ni >= m || nj < 0 || nj >= n) {
+                            dp[i][j][k] += 1;
+                        } else {
+                            dp[i][j][k] = (dp[i][j][k] + dp[ni][nj][k - 1]) % MOD;
+                        }
+                    }
+                }
+            }
+        }
+        return dp[startRow][startRow][maxMove];
     }
 };
 
